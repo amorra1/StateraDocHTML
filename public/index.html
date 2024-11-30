@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sidebar with Form</title>
+    <style>
+      /* Basic reset and layout */
+      body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        display: flex;
+        height: 100vh; /* Full viewport height */
+      }
+
+      /* Sidebar styling */
+      .sidebar {
+        width: 250px;
+        background-color: #f4f4f4;
+        padding: 20px;
+        box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+      }
+
+      /* Label styling */
+      label {
+        display: block;
+        font-weight: bold;
+        margin-bottom: 8px;
+      }
+
+      .docList {
+        list-style-type: None;
+      }
+
+      .docButton {
+        width: 100%;
+        padding: 10px;
+        font-size: 16px;
+        margin-bottom: 20px; /* Space between fields */
+        border: 2px solid #1d1d1d;
+        border-radius: 4px;
+        box-sizing: border-box;
+      }
+
+      /* Input, select, and button styling */
+      input[type="text"],
+      select,
+      button {
+        width: 100%;
+        padding: 10px;
+        font-size: 16px;
+        margin-bottom: 20px; /* Space between fields */
+        border: 2px solid #ccc;
+        border-radius: 4px;
+        box-sizing: border-box;
+      }
+
+      /* Button specific styling */
+      button {
+        background-color: #007bff;
+        color: white;
+        cursor: pointer;
+        font-weight: bold;
+        border: none;
+        transition: background-color 0.3s;
+      }
+
+      button:hover {
+        background-color: #0056b3;
+      }
+
+      /* Huge PDF container */
+      .pdf-box {
+        width: 100%; /* Fill the container */
+        height: 90vh; /* Set the container height to 90% of the viewport height */
+        border: 2px solid #ccc;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        overflow: hidden; /* Prevent overflow */
+      }
+
+      /* PDF Viewer
+      #pdfViewer {
+        width: 100%;
+        height: 100%;
+        object-fit: contain; /* Ensure the PDF scales to fit the container */
+
+      /* Main content styling */
+      .content {
+        flex: 1; /* Take up remaining space */
+        padding: 20px;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Sidebar container -->
+    <div class="sidebar">
+      <!-- Username input field -->
+      <div class="text-field">
+        <label for="inputField">Username</label>
+        <input
+          type="text"
+          id="usernameInput"
+          placeholder="Enter Username Here"
+        />
+      </div>
+      <button id="searchUser">Search User</button>
+
+      <!-- Dropdown menu -->
+      <div class="dropdown">
+        <label for="organizations">Select an Organization</label>
+        <select id="organizations">
+          <option disabled selected>Select an option</option>
+        </select>
+      </div>
+
+      <!-- Button -->
+      <button id="vcSearch">Search Version Control</button>
+
+      <!---list of document versions-->
+      <div>
+        <label for="versions" id="versionsTitle"></label>
+        <ul class="docList" id="docList"></ul>
+      </div>
+    </div>
+
+    <!-- Main content area -->
+    <div class="content">
+      <h1>Statera Version Control</h1>
+      <h2 id="versionSelected">Selected Version</h2>
+      <div class="content">
+        <div class="pdf-box">
+          <!-- Placeholder for PDF Viewer -->
+          <embed
+            id="pdfViewer"
+            type="application/pdf"
+            width="100%"
+            height="100%"
+          />
+        </div>
+      </div>
+    </div>
+    <script src="script.js"></script>
+  </body>
+</html>
